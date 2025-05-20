@@ -17,48 +17,70 @@
       margin-bottom: 30px;
     }
 
-    .subject, .course {
-      background-color: #ffffff;
+    h2 {
+      color: #333;
+      margin-top: 40px;
+      cursor: pointer;
+      user-select: none;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 15px;
       border: 1px solid #ccc;
       border-radius: 10px;
-      max-width: 400px;
-      margin: 15px auto;
-      padding: 15px;
-      cursor: pointer;
+      background: #fff;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: background-color 0.2s ease;
-      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .subject:hover, .course:hover {
+    h2:hover {
       background-color: #f0f8ff;
     }
 
-    .title {
+    .arrow {
       font-size: 1.2em;
-      font-weight: bold;
+      transition: transform 0.3s ease;
+      user-select: none;
+    }
+
+    .expanded > .arrow {
+      transform: rotate(180deg);
+    }
+
+    .courses {
+      max-width: 400px;
+      margin: 0 auto 20px auto;
+      text-align: left;
+      display: none; /* hide by default */
+    }
+
+    .course {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin: 15px 0;
+      padding: 12px 15px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: background-color 0.2s ease;
       display: flex;
       justify-content: space-between;
       align-items: center;
       user-select: none;
     }
 
-    .arrow {
-      font-size: 1.3em;
-      transition: transform 0.3s ease;
+    .course:hover {
+      background-color: #f0f8ff;
     }
 
-    .expanded > .title > .arrow {
-      transform: rotate(180deg);
+    .paper-links {
+      margin: 8px 0 15px 15px;
+      display: none; /* hide by default */
     }
 
-    .hidden {
-      display: none;
-      margin-top: 10px;
-      padding-left: 15px;
-    }
-
-    a {
+    .paper-links a {
       display: block;
       margin: 6px 0;
       color: #0056a3;
@@ -67,7 +89,7 @@
       user-select: text;
     }
 
-    a:hover {
+    .paper-links a:hover {
       text-decoration: underline;
     }
   </style>
@@ -77,87 +99,75 @@
   <h1>Level 3 Past Papers</h1>
 
   <!-- Computer Science Subject -->
-  <div class="subject" onclick="toggleSection(this)">
-    <div class="title">
-      Computer Science
+  <h2 onclick="toggleSection(this)">
+    Computer Science
+    <span class="arrow">&#9660;</span>
+  </h2>
+  <div class="courses">
+    <div class="course" onclick="toggleSectionCourse(event, this)">
+      CSU3200
       <span class="arrow">&#9660;</span>
+      <div class="paper-links">
+        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
+        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
+      </div>
     </div>
 
-    <div class="hidden">
-      <!-- CSU3200 Course -->
-      <div class="course" onclick="toggleSection(event, this)">
-        <div class="title">
-          CSU3200
-          <span class="arrow">&#9660;</span>
-        </div>
-        <div class="hidden">
-          <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-          <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-        </div>
-      </div>
-
-      <!-- CSU3301 Course -->
-      <div class="course" onclick="toggleSection(event, this)">
-        <div class="title">
-          CSU3301
-          <span class="arrow">&#9660;</span>
-        </div>
-        <div class="hidden">
-          <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-          <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-        </div>
+    <div class="course" onclick="toggleSectionCourse(event, this)">
+      CSU3301
+      <span class="arrow">&#9660;</span>
+      <div class="paper-links">
+        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
+        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
       </div>
     </div>
   </div>
 
   <!-- Physics Subject -->
-  <div class="subject" onclick="toggleSection(this)">
-    <div class="title">
-      Physics
+  <h2 onclick="toggleSection(this)">
+    Physics
+    <span class="arrow">&#9660;</span>
+  </h2>
+  <div class="courses">
+    <div class="course" onclick="toggleSectionCourse(event, this)">
+      PHU3300
       <span class="arrow">&#9660;</span>
+      <div class="paper-links">
+        <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
+        <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
+      </div>
     </div>
 
-    <div class="hidden">
-      <!-- PHU3300 Course -->
-      <div class="course" onclick="toggleSection(event, this)">
-        <div class="title">
-          PHU3300
-          <span class="arrow">&#9660;</span>
-        </div>
-        <div class="hidden">
-          <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-          <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-        </div>
-      </div>
-
-      <!-- PHU3301 Course -->
-      <div class="course" onclick="toggleSection(event, this)">
-        <div class="title">
-          PHU3301
-          <span class="arrow">&#9660;</span>
-        </div>
-        <div class="hidden">
-          <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-          <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-        </div>
+    <div class="course" onclick="toggleSectionCourse(event, this)">
+      PHU3301
+      <span class="arrow">&#9660;</span>
+      <div class="paper-links">
+        <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
+        <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
       </div>
     </div>
   </div>
 
 <script>
-  function toggleSection(event, element) {
-    if(event) event.stopPropagation(); // Stop event bubbling
-
-    const el = element || event.currentTarget;
+  function toggleSection(el) {
     el.classList.toggle('expanded');
-
-    const hiddenDiv = el.querySelector('.hidden');
-    if (!hiddenDiv) return;
-
-    if (hiddenDiv.style.display === 'block') {
-      hiddenDiv.style.display = 'none';
+    const next = el.nextElementSibling;
+    if (next.style.display === 'block') {
+      next.style.display = 'none';
     } else {
-      hiddenDiv.style.display = 'block';
+      next.style.display = 'block';
+    }
+  }
+
+  function toggleSectionCourse(event, el) {
+    event.stopPropagation(); // Prevent toggling parent section
+
+    el.classList.toggle('expanded');
+    const papers = el.querySelector('.paper-links');
+    if (papers.style.display === 'block') {
+      papers.style.display = 'none';
+    } else {
+      papers.style.display = 'block';
     }
   }
 </script>
