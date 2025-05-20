@@ -77,19 +77,21 @@
   </main>
 
    <script>
-   const searchBox = document.getElementById('searchBox');
+  window.onload = function () {
+    const searchBox = document.getElementById('searchBox');
 
-  searchBox.addEventListener('input', function () {
-    const query = searchBox.value.toLowerCase();
+    searchBox.addEventListener('input', function () {
+      const query = searchBox.value.toLowerCase();
 
-    document.querySelectorAll('.link-section').forEach(section => {
-      const link = section.querySelector('a'); // get the <a> tag inside
-      const text = link.textContent.toLowerCase();
-
-      section.style.display = text.includes(query) ? 'block' : 'none';
-    });
-   });
+      document.querySelectorAll('.link-section').forEach(section => {
+        const link = section.querySelector('a');
+        const text = link.textContent.toLowerCase();
+        section.style.display = text.includes(query) ? 'block' : 'none';
+       });
+     });
+    };
   </script>
+
 
 
 </body>
