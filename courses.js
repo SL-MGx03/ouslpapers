@@ -50,5 +50,12 @@ const coursesData = [
       { code: "BYU3500", cat: "#", final: "#" },
       { code: "BYU3301", cat: "#", final: "#" }
     ]
+  };
+  {
+    subject: "Open Elective",
+    courses: [
+      { code: "DSU", cat: "#", final: "#" },
+      { code: "TEST", cat: "#", final: "#" }
+    ]
   }
 ];
