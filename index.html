@@ -61,6 +61,12 @@
       border-radius: 8px;
       border: 1px solid #ccc;
     }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #555;
+    }
   </style>
 </head>
 <body>
@@ -76,55 +82,56 @@
     </section>
   </main>
 
-  <script src="courses.js"></script>  <!-- Your external courses data -->
+  <footer>
+    <p>This website is made for educational purposes only.<br>© 2025 All rights reserved.</p>
+  </footer>
 
-<script>
-  window.onload = function () {
-    const searchBox = document.getElementById('searchBox');
+  <script src="courses.js"></script>
 
-    // Your existing filtering code (keep it exactly)
-    searchBox.addEventListener('input', function () {
-      const query = searchBox.value.toLowerCase();
+  <script>
+    window.onload = function () {
+      const searchBox = document.getElementById('searchBox');
 
-      document.querySelectorAll('.link-section').forEach(section => {
-        const link = section.querySelector('a');
-        const text = link.textContent.toLowerCase();
-        section.style.display = text.includes(query) ? 'block' : 'none';
+      searchBox.addEventListener('input', function () {
+        const query = searchBox.value.toLowerCase();
+
+        document.querySelectorAll('.link-section').forEach(section => {
+          const link = section.querySelector('a');
+          const text = link.textContent.toLowerCase();
+          section.style.display = text.includes(query) ? 'block' : 'none';
+        });
       });
-    });
 
-    // Add this new event listener for Enter key to redirect to result.html if match found
-    searchBox.addEventListener('keydown', function (event) {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        const query = searchBox.value.trim().toLowerCase();
-        if (!query) return;
+      searchBox.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          const query = searchBox.value.trim().toLowerCase();
+          if (!query) return;
 
-        // Assuming your courses.js defines a global 'coursesData' array of subjects and courses
-        let matchedSubject = null;
-        for (const subjectObj of coursesData) {
-          if (subjectObj.subject.toLowerCase().includes(query)) {
-            matchedSubject = subjectObj.subject;
-            break;
-          }
-          for (const course of subjectObj.courses) {
-            if (course.code.toLowerCase().includes(query)) {
+          let matchedSubject = null;
+          for (const subjectObj of coursesData) {
+            if (subjectObj.subject.toLowerCase().includes(query)) {
               matchedSubject = subjectObj.subject;
               break;
             }
+            for (const course of subjectObj.courses) {
+              if (course.code.toLowerCase().includes(query)) {
+                matchedSubject = subjectObj.subject;
+                break;
+              }
+            }
+            if (matchedSubject) break;
           }
-          if (matchedSubject) break;
-        }
 
-        if (matchedSubject) {
-          window.location.href = `result.html?subject=${encodeURIComponent(matchedSubject)}`;
-        } else {
-          alert('No matching subject or course found.');
+          if (matchedSubject) {
+            window.location.href = `result.html?subject=${encodeURIComponent(matchedSubject)}`;
+          } else {
+            alert('No matching subject or course found.');
+          }
         }
-      }
-    });
-  };
- </script>
+      });
+    };
+  </script>
 
 </body>
 </html>
