@@ -4,45 +4,58 @@
   <meta charset="UTF-8" />
   <title>Level 3 - OUSL Past Papers</title>
   <style>
+    /* Background image */
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #f9f9f9, #d7e1ec);
+      background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c'); /* Replace with any studying image URL */
+      background-size: cover;
+      background-position: center;
       margin: 0;
-      padding: 20px;
-      text-align: center;
+      padding: 0;
+    }
+
+    /* Glassmorphism overlay */
+    .overlay {
+      backdrop-filter: blur(8px);
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      width: 90%;
+      max-width: 1000px;
+      margin: 40px auto;
+      color: white;
+      overflow: visible;
     }
 
     h1 {
-      color: #0077cc;
+      color: #fff;
+      text-align: center;
       margin-bottom: 30px;
+      text-shadow: 0 1px 2px #000;
     }
 
     h2 {
-      color: #333;
-      margin-top: 40px;
-      cursor: pointer;
-      user-select: none;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.3);
       padding: 15px;
-      border: 1px solid #ccc;
       border-radius: 10px;
-      background: #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-top: 30px;
+      cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      user-select: none;
     }
 
     h2:hover {
-      background-color: #f0f8ff;
+      background-color: rgba(255, 255, 255, 0.2);
     }
 
     .arrow {
       font-size: 1.2em;
       transition: transform 0.3s ease;
-      user-select: none;
     }
 
     .expanded > .arrow {
@@ -50,43 +63,37 @@
     }
 
     .courses {
-      max-width: 400px;
-      margin: 0 auto 20px auto;
-      text-align: left;
-      display: none; /* hide by default */
+      display: none;
+      margin-top: 10px;
     }
 
     .course {
-      background-color: #ffffff;
-      border: 1px solid #ccc;
+      background-color: rgba(255, 255, 255, 0.2);
       border-radius: 10px;
-      margin: 15px 0;
-      padding: 12px 15px;
+      margin: 10px 0;
+      padding: 10px 15px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: background-color 0.2s ease;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      user-select: none;
+      color: #fff;
     }
 
     .course:hover {
-      background-color: #f0f8ff;
+      background-color: rgba(255, 255, 255, 0.3);
     }
 
     .paper-links {
-      margin: 8px 0 15px 15px;
-      display: none; /* hide by default */
+      display: none;
+      margin-top: 10px;
+      margin-left: 20px;
     }
 
     .paper-links a {
       display: block;
-      margin: 6px 0;
-      color: #0056a3;
+      color: #ffecb3;
       text-decoration: none;
-      font-weight: bold;
-      user-select: text;
+      margin-bottom: 5px;
     }
 
     .paper-links a:hover {
@@ -96,239 +103,5 @@
 </head>
 <body>
 
-  <h1>Level 3 Past Papers</h1>
-
-
-  <!-- Peo Subject -->
-  <h2 onclick="toggleSection(this)">
-    Pure Maths
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      PEU3300
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      PEU3301
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-     <div class="course" onclick="toggleSectionCourse(event, this)">
-      PEU3202
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
-
-
-    <!-- Applied Subject -->
-  <h2 onclick="toggleSection(this)">
-    Applied Maths
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      ADU3300
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      ADU3201
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-     <div class="course" onclick="toggleSectionCourse(event, this)">
-      ADU3302
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Computer Science Subject -->
-  <h2 onclick="toggleSection(this)">
-    Computer Science
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      CSU3200
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      CSU3301
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
-
-  <!--Chemistry Subject -->
-  <h2 onclick="toggleSection(this)">
-    Chemistry
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      CYU3300
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      CYU3201
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-     <div class="course" onclick="toggleSectionCourse(event, this)">
-      CYU3302
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Physics Subject -->
-  <h2 onclick="toggleSection(this)">
-    Physics
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      PHU3300
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      PHU3301
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
-
-
-   <!-- Zoology Subject -->
-  <h2 onclick="toggleSection(this)">
-    Zoology
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      ZYU3500
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      ZYU3301
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
-
- <!-- Botany Subject -->
-  <h2 onclick="toggleSection(this)">
-    Botany
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      BYU3500
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      BYU3301
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
-
-
-
-<script>
-  function toggleSection(el) {
-    el.classList.toggle('expanded');
-    const next = el.nextElementSibling;
-    if (next.style.display === 'block') {
-      next.style.display = 'none';
-    } else {
-      next.style.display = 'block';
-    }
-  }
-
-  function toggleSectionCourse(event, el) {
-    event.stopPropagation(); // Prevent toggling parent section
-
-    el.classList.toggle('expanded');
-    const papers = el.querySelector('.paper-links');
-    if (papers.style.display === 'block') {
-      papers.style.display = 'none';
-    } else {
-      papers.style.display = 'block';
-    }
-  }
-</script>
-
-</body>
-</html>
+  <div class="overlay">
+    <h1>Level 3 Past Papers</h1>
