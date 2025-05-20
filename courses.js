@@ -2,7 +2,7 @@ const coursesData = [
   {
     subject: "Pure Maths",
     courses: [
-      { code: "PEU3300", cat: "#", final: "#" },
+      { code: "PEU3300", cat: "https://drive.google.com/drive/folders/15zMqaHH6jzqlVhK2-rBDWXxDOoV2Thjq?usp=drive_link", final: "https://drive.google.com/drive/folders/15zMqaHH6jzqlVhK2-rBDWXxDOoV2Thjq?usp=drive_link" },
       { code: "PEU3301", cat: "#", final: "#" },
       { code: "PEU3202", cat: "#", final: "#" }
     ]
