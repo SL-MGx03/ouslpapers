@@ -17,6 +17,11 @@
       margin-bottom: 30px;
     }
 
+    h2 {
+      color: #444;
+      margin-top: 40px;
+    }
+
     .subject {
       background-color: #ffffff;
       border: 1px solid #ccc;
@@ -81,14 +86,51 @@
 
   <h1>Level 3 Subjects</h1>
 
+  <h2>Computer Science</h2>
+
   <div class="subject" onclick="togglePapers('csu3200', this)">
     <div class="subject-title">
       CSU3200 <span class="arrow">&#9660;</span>
     </div>
     <div class="hint">Click to expand</div>
     <div id="csu3200" class="paper-links">
-      <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW?usp=drive_link" target="_blank">CAT Papers</a>
-      <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg?usp=drive_link" target="_blank">Final Papers</a>
+      <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank">CAT Papers</a>
+      <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank">Final Papers</a>
+    </div>
+  </div>
+
+  <div class="subject" onclick="togglePapers('csu3301', this)">
+    <div class="subject-title">
+      CSU3301 <span class="arrow">&#9660;</span>
+    </div>
+    <div class="hint">Click to expand</div>
+    <div id="csu3301" class="paper-links">
+      <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank">CAT Papers</a>
+      <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank">Final Papers</a>
+    </div>
+  </div>
+
+  <h2>Physics</h2>
+
+  <div class="subject" onclick="togglePapers('phu3300', this)">
+    <div class="subject-title">
+      PHU3300 <span class="arrow">&#9660;</span>
+    </div>
+    <div class="hint">Click to expand</div>
+    <div id="phu3300" class="paper-links">
+      <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-CAT" target="_blank">CAT Papers</a>
+      <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-FINAL" target="_blank">Final Papers</a>
+    </div>
+  </div>
+
+  <div class="subject" onclick="togglePapers('phu3301', this)">
+    <div class="subject-title">
+      PHU3301 <span class="arrow">&#9660;</span>
+    </div>
+    <div class="hint">Click to expand</div>
+    <div id="phu3301" class="paper-links">
+      <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-CAT" target="_blank">CAT Papers</a>
+      <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-FINAL" target="_blank">Final Papers</a>
     </div>
   </div>
 
@@ -96,7 +138,6 @@
     function togglePapers(id, element) {
       const section = document.getElementById(id);
       const isVisible = section.style.display === "block";
-
       section.style.display = isVisible ? "none" : "block";
 
       if (element.classList.contains("expanded")) {
@@ -109,3 +150,4 @@
 
 </body>
 </html>
+
