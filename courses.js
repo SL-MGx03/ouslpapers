@@ -42,15 +42,15 @@ const coursesData = [
   {
     subject: "Zoology",
     courses: [
-      { code: "ZYU3500", cat: "#", final: "#" },
-      { code: "ZYU3301", cat: "#", final: "#" }
+      { code: "ZYU3500", cat: "https://drive.google.com/drive/folders/1EvOFFkYPACgb31aOadqaP6StPlFhbmgD?usp=drive_link", final: "https://drive.google.com/drive/folders/1EvOFFkYPACgb31aOadqaP6StPlFhbmgD?usp=drive_link" },
+      { code: "ZYU3301", cat: "https://drive.google.com/drive/folders/1An_CiqvolyAay17-x4vmFdwKIJbp3Lw3?usp=drive_link", final: "https://drive.google.com/drive/folders/1An_CiqvolyAay17-x4vmFdwKIJbp3Lw3?usp=drive_link" }
     ]
   },
   {
     subject: "Botany",
     courses: [
-      { code: "BYU3500", cat: "#", final: "#" },
-      { code: "BYU3301", cat: "#", final: "#" }
+      { code: "BYU3500", cat: "https://drive.google.com/drive/folders/1dnrc_yZN-5QPPzBQOfUAO1oQh5R3mLoi?usp=drive_link", final: "https://drive.google.com/drive/folders/1dnrc_yZN-5QPPzBQOfUAO1oQh5R3mLoi?usp=drive_link" },
+      { code: "BYU3301", cat: "https://drive.google.com/drive/folders/1P2mh1aqK5W5TogRnSvika6SHrDZWAPMz?usp=drive_link", final: "https://drive.google.com/drive/folders/1P2mh1aqK5W5TogRnSvika6SHrDZWAPMz?usp=drive_link" }
     ]
   },
   {
