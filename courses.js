@@ -26,16 +26,17 @@ const coursesData = [
   {
     subject: "Chemistry",
     courses: [
-      { code: "CYU3300", cat: "#", final: "#" },
-      { code: "CYU3201", cat: "#", final: "#" },
-      { code: "CYU3302", cat: "#", final: "#" }
+      { code: "CYU3300", cat: "https://drive.google.com/drive/folders/1_ICClJ49X8rxaL4VzxJB6Qp3045Je-o9?usp=drive_link", final: "https://drive.google.com/drive/folders/1_ICClJ49X8rxaL4VzxJB6Qp3045Je-o9?usp=drive_link" },
+      { code: "CYU3201", cat: "https://drive.google.com/drive/folders/1auGmtKIA5MvB0IY22GZ1QW3N3iRefPYU?usp=drive_link", final: "https://drive.google.com/drive/folders/1auGmtKIA5MvB0IY22GZ1QW3N3iRefPYU?usp=drive_link" },
+      { code: "CYU3302", cat: "https://drive.google.com/drive/folders/1X_9JV8dlJ2NM_h05KbjobjRTLaF5iGpr?usp=drive_link", final: "https://drive.google.com/drive/folders/1X_9JV8dlJ2NM_h05KbjobjRTLaF5iGpr?usp=drive_link" }
     ]
   },
   {
     subject: "Physics",
     courses: [
-      { code: "PHU3300", cat: "#", final: "#" },
-      { code: "PHU3301", cat: "#", final: "#" }
+      { code: "PHU3300", cat: "https://drive.google.com/drive/folders/1V1TxoupniJ3z3ufdvZJ3pomhwo2TpvxJ?usp=drive_link", final: "https://drive.google.com/drive/folders/1V1TxoupniJ3z3ufdvZJ3pomhwo2TpvxJ?usp=drive_link" },
+      { code: "PHU3301", cat: "https://drive.google.com/drive/folders/1Pq_PBMmRhaExn4TZe-gmJFlrHmJnB9a2?usp=drive_link", final: "https://drive.google.com/drive/folders/1Pq_PBMmRhaExn4TZe-gmJFlrHmJnB9a2?usp=drive_link" };
+      { code: "PHU3202", cat: "https://drive.google.com/drive/folders/1Ao463Mu6fznCwxdfcyJrZVzjohyOGTtx?usp=drive_link", final: "https://drive.google.com/drive/folders/1Ao463Mu6fznCwxdfcyJrZVzjohyOGTtx?usp=drive_link" }
     ]
   },
   {
