@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Level 3 - OUSL Past Papers</title>
   <style>
     body {
@@ -17,29 +17,25 @@
       margin-bottom: 30px;
     }
 
-    h2 {
-      color: #333;
-      margin-top: 40px;
-    }
-
-    .course {
+    .subject, .course {
       background-color: #ffffff;
       border: 1px solid #ccc;
       border-radius: 10px;
       max-width: 400px;
-      margin: 20px auto;
+      margin: 15px auto;
       padding: 15px;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       transition: background-color 0.2s ease;
+      text-align: left;
     }
 
-    .course:hover {
+    .subject:hover, .course:hover {
       background-color: #f0f8ff;
     }
 
-    .course-title {
-      font-size: 1.1em;
+    .title {
+      font-size: 1.2em;
       font-weight: bold;
       display: flex;
       justify-content: space-between;
@@ -47,29 +43,30 @@
     }
 
     .arrow {
-      font-size: 1.2em;
+      font-size: 1.3em;
       transition: transform 0.3s ease;
+      user-select: none;
     }
 
-    .expanded .arrow {
+    .expanded > .title > .arrow {
       transform: rotate(180deg);
     }
 
-    .paper-links {
+    .hidden {
       display: none;
-      margin-top: 15px;
-      text-align: left;
+      margin-top: 10px;
+      padding-left: 15px;
     }
 
-    .paper-links a {
+    a {
       display: block;
-      margin: 8px 0;
+      margin: 6px 0;
       color: #0056a3;
       text-decoration: none;
       font-weight: bold;
     }
 
-    .paper-links a:hover {
+    a:hover {
       text-decoration: underline;
     }
   </style>
@@ -78,63 +75,89 @@
 
   <h1>Level 3 Past Papers</h1>
 
-  <h2>Computer Science</h2>
-
-  <div class="course" onclick="togglePapers('cs_course1', this)">
-    <div class="course-title">
-      Click to view <span class="arrow">&#9660;</span>
+  <!-- Computer Science Subject -->
+  <div class="subject" onclick="toggleSection(this)">
+    <div class="title">
+      Computer Science
+      <span class="arrow">&#9660;</span>
     </div>
-    <div id="cs_course1" class="paper-links">
-      <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank">CAT Papers</a>
-      <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank">Final Papers</a>
+
+    <div class="hidden">
+      <!-- CSU3200 Course -->
+      <div class="course" onclick="toggleSection(event, this)">
+        <div class="title">
+          CSU3200
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="hidden">
+          <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank">CAT Papers</a>
+          <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank">Final Papers</a>
+        </div>
+      </div>
+
+      <!-- CSU3301 Course -->
+      <div class="course" onclick="toggleSection(event, this)">
+        <div class="title">
+          CSU3301
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="hidden">
+          <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank">CAT Papers</a>
+          <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank">Final Papers</a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="course" onclick="togglePapers('cs_course2', this)">
-    <div class="course-title">
-      Click to view <span class="arrow">&#9660;</span>
+  <!-- Physics Subject -->
+  <div class="subject" onclick="toggleSection(this)">
+    <div class="title">
+      Physics
+      <span class="arrow">&#9660;</span>
     </div>
-    <div id="cs_course2" class="paper-links">
-      <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank">CAT Papers</a>
-      <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank">Final Papers</a>
+
+    <div class="hidden">
+      <!-- PHU3300 Course -->
+      <div class="course" onclick="toggleSection(event, this)">
+        <div class="title">
+          PHU3300
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="hidden">
+          <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-CAT" target="_blank">CAT Papers</a>
+          <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-FINAL" target="_blank">Final Papers</a>
+        </div>
+      </div>
+
+      <!-- PHU3301 Course -->
+      <div class="course" onclick="toggleSection(event, this)">
+        <div class="title">
+          PHU3301
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="hidden">
+          <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-CAT" target="_blank">CAT Papers</a>
+          <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-FINAL" target="_blank">Final Papers</a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <h2>Physics</h2>
+<script>
+  function toggleSection(event, element) {
+    if(event) event.stopPropagation(); // Prevent parent toggling
 
-  <div class="course" onclick="togglePapers('ph_course1', this)">
-    <div class="course-title">
-      Click to view <span class="arrow">&#9660;</span>
-    </div>
-    <div id="ph_course1" class="paper-links">
-      <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-CAT" target="_blank">CAT Papers</a>
-      <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-FINAL" target="_blank">Final Papers</a>
-    </div>
-  </div>
+    const el = element || event.currentTarget;
+    el.classList.toggle('expanded');
 
-  <div class="course" onclick="togglePapers('ph_course2', this)">
-    <div class="course-title">
-      Click to view <span class="arrow">&#9660;</span>
-    </div>
-    <div id="ph_course2" class="paper-links">
-      <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-CAT" target="_blank">CAT Papers</a>
-      <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-FINAL" target="_blank">Final Papers</a>
-    </div>
-  </div>
-
-  <script>
-    function togglePapers(id, element) {
-      const section = document.getElementById(id);
-      const isVisible = section.style.display === "block";
-      section.style.display = isVisible ? "none" : "block";
-
-      if (element.classList.contains("expanded")) {
-        element.classList.remove("expanded");
-      } else {
-        element.classList.add("expanded");
-      }
+    const hiddenDiv = el.querySelector('.hidden');
+    if(hiddenDiv.style.display === 'block') {
+      hiddenDiv.style.display = 'none';
+    } else {
+      hiddenDiv.style.display = 'block';
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
