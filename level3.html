@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <title>Level 3 - OUSL Past Papers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       font-family: Arial, sans-serif;
       background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       margin: 0;
       padding: 0;
     }
@@ -20,8 +23,8 @@
       border-radius: 20px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       padding: 30px;
-      width: 40%;
-      max-width: 1000px;
+      width: 90%;
+      max-width: 700px;
       margin: 40px auto;
       color: white;
       overflow: visible;
@@ -32,19 +35,21 @@
       text-align: center;
       margin-bottom: 30px;
       text-shadow: 0 1px 2px #000;
+      font-size: 1.8em;
     }
 
     h2 {
       color: #fff;
       background-color: rgba(0, 0, 0, 0.3);
-      padding: 15px;
+      padding: 12px;
       border-radius: 10px;
-      margin-top: 30px;
+      margin-top: 20px;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
       user-select: none;
+      font-size: 1em;
     }
 
     h2:hover {
@@ -85,6 +90,7 @@
       display: none;
       margin-top: 10px;
       margin-left: 20px;
+      width: 100%;
     }
 
     .paper-links a {
@@ -95,19 +101,15 @@
       padding: 5px 10px;
       border-radius: 5px;
       background-color: rgba(0, 0, 0, 0.4);
+      width: fit-content;
     }
 
     .paper-links a:hover {
       background-color: rgba(255, 255, 255, 0.2);
       text-decoration: underline;
     }
-  </style>
-</head>
-<body>
-  <div class="overlay">
-  <h1>Level 3 - OUSL Past Papers</h1>
 
-  <a href="index.html" style="
+    a.back-link {
       display: inline-block;
       margin-bottom: 20px;
       font-size: 1em;
@@ -117,12 +119,35 @@
       padding: 8px 16px;
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.4);
-      transition: background-color 0.3s;">
-    ← Go Back to Home
-  </a>
+      transition: background-color 0.3s;
+    }
 
-  <div id="course-container"></div>
-</div>
+    a.back-link:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 0.95em;
+        padding: 10px;
+      }
+      .overlay {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Level 3 - OUSL Past Papers</h1>
+
+    <a href="index.html" class="back-link">← Go Back to Home</a>
+
+    <div id="course-container"></div>
+  </div>
 
   <script src="courses.js"></script>
   <script>
