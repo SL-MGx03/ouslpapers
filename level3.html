@@ -4,17 +4,15 @@
   <meta charset="UTF-8" />
   <title>Level 3 - OUSL Past Papers</title>
   <style>
-    /* Background image */
     body {
       font-family: Arial, sans-serif;
-      background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c'); /* Replace with any studying image URL */
+      background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
       background-size: cover;
       background-position: center;
       margin: 0;
       padding: 0;
     }
 
-    /* Glassmorphism overlay */
     .overlay {
       backdrop-filter: blur(8px);
       background-color: rgba(255, 255, 255, 0.15);
@@ -96,253 +94,84 @@
       margin-bottom: 5px;
       padding: 5px 10px;
       border-radius: 5px;
-      background-color: rgba(0, 0, 0, 0.4); /* Add this for better visibility */
+      background-color: rgba(0, 0, 0, 0.4);
     }
-
 
     .paper-links a:hover {
       background-color: rgba(255, 255, 255, 0.2);
       text-decoration: underline;
     }
-
   </style>
 </head>
 <body>
-
   <div class="overlay">
-    <h1>Level 3 Past Papers</h1>
+  <h1>Level 3 - OUSL Past Papers</h1>
 
+  <a href="index.html" style="
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 1em;
+      text-decoration: none;
+      color: #ffe;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      transition: background-color 0.3s;">
+    ← Go Back to Home
+  </a>
 
-  <!-- Peo Subject -->
-  <h2 onclick="toggleSection(this)">
-    Pure Maths
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      PEU3300
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
+  <div id="course-container"></div>
+</div>
 
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      PEU3301
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
+  <script src="courses.js"></script>
+  <script>
+    const container = document.getElementById('course-container');
 
-     <div class="course" onclick="toggleSectionCourse(event, this)">
-      PEU3202
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
+    coursesData.forEach(subject => {
+      const subjectHeader = document.createElement('h2');
+      subjectHeader.innerHTML = `${subject.subject} <span class="arrow">▼</span>`;
+      container.appendChild(subjectHeader);
 
+      const courseList = document.createElement('div');
+      courseList.className = 'courses';
 
-    <!-- Applied Subject -->
-  <h2 onclick="toggleSection(this)">
-    Applied Maths
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      ADU3300
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
+      subject.courses.forEach(course => {
+        const courseDiv = document.createElement('div');
+        courseDiv.className = 'course';
+        courseDiv.textContent = course.code;
 
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      ADU3201
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
+        const linksDiv = document.createElement('div');
+        linksDiv.className = 'paper-links';
 
-     <div class="course" onclick="toggleSectionCourse(event, this)">
-      ADU3302
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
+        const catLink = document.createElement('a');
+        catLink.href = course.cat;
+        catLink.target = '_blank';
+        catLink.textContent = 'CAT';
 
-  <!-- Computer Science Subject -->
-  <h2 onclick="toggleSection(this)">
-    Computer Science
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      CSU3200
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
+        const finalLink = document.createElement('a');
+        finalLink.href = course.final;
+        finalLink.target = '_blank';
+        finalLink.textContent = 'Final';
 
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      CSU3301
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
+        linksDiv.appendChild(catLink);
+        linksDiv.appendChild(finalLink);
+        courseDiv.appendChild(linksDiv);
+        courseList.appendChild(courseDiv);
 
-  <!--Chemistry Subject -->
-  <h2 onclick="toggleSection(this)">
-    Chemistry
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      CYU3300
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
+        courseDiv.addEventListener('click', () => {
+          linksDiv.style.display = linksDiv.style.display === 'block' ? 'none' : 'block';
+        });
+      });
 
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      CYU3201
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
+      subjectHeader.addEventListener('click', () => {
+        const isVisible = courseList.style.display === 'block';
+        courseList.style.display = isVisible ? 'none' : 'block';
+        subjectHeader.classList.toggle('expanded', !isVisible);
+      });
 
-     <div class="course" onclick="toggleSectionCourse(event, this)">
-      CYU3302
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Physics Subject -->
-  <h2 onclick="toggleSection(this)">
-    Physics
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      PHU3300
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      PHU3301
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
-
-
-   <!-- Zoology Subject -->
-  <h2 onclick="toggleSection(this)">
-    Zoology
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      ZYU3500
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      ZYU3301
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
-
- <!-- Botany Subject -->
-  <h2 onclick="toggleSection(this)">
-    Botany
-    <span class="arrow">&#9660;</span>
-  </h2>
-  <div class="courses">
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      BYU3500
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-
-    <div class="course" onclick="toggleSectionCourse(event, this)">
-      BYU3301
-      <span class="arrow">&#9660;</span>
-      <div class="paper-links">
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
-        <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
-      </div>
-    </div>
-  </div>
-
-
-
-<script>
-  function toggleSection(el) {
-    el.classList.toggle('expanded');
-    const next = el.nextElementSibling;
-    if (next.style.display === 'block') {
-      next.style.display = 'none';
-    } else {
-      next.style.display = 'block';
-    }
-  }
-
-  function toggleSectionCourse(event, el) {
-    event.stopPropagation(); // Prevent toggling parent section
-
-    el.classList.toggle('expanded');
-    const papers = el.querySelector('.paper-links');
-    if (papers.style.display === 'block') {
-      papers.style.display = 'none';
-    } else {
-      papers.style.display = 'block';
-    }
-  }
-</script>
-
+      container.appendChild(courseList);
+    });
+  </script>
 </body>
 </html>
