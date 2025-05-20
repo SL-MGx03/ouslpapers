@@ -19,7 +19,7 @@ const coursesData = [
     subject: "Computer Science",
     courses: [
       { code: "CSU3200", cat: "https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW?usp=drive_link", final: "https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg?usp=drive_link" },
-      { code: "CSU3301", cat: "#", final: "#" }
+      { code: "CSU3301", cat: "https://drive.google.com/drive/folders/1Ume8N0gyANT2Dl5IMaZbCbs19W7D_DKL?usp=drive_link", final: "https://drive.google.com/drive/folders/1WBfFh0N4_WK2uewFs19L3Nyqh8epZBRC?usp=drive_link" }
     ]
   },
   {
