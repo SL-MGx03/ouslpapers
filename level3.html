@@ -27,16 +27,41 @@
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       transition: background-color 0.2s ease;
+      position: relative;
     }
 
     .subject:hover {
       background-color: #f0f8ff;
     }
 
+    .subject-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .arrow {
+      font-size: 1.2em;
+      transition: transform 0.3s ease;
+    }
+
+    .expanded .arrow {
+      transform: rotate(180deg);
+    }
+
+    .hint {
+      font-size: 0.8em;
+      color: #777;
+      margin-top: 5px;
+    }
+
     .paper-links {
       display: none;
       margin-top: 15px;
       text-align: left;
+      transition: all 0.3s ease;
     }
 
     .paper-links a {
@@ -56,8 +81,11 @@
 
   <h1>Level 3 Subjects</h1>
 
-  <div class="subject" onclick="togglePapers('csu3200')">
-    CSU3200
+  <div class="subject" onclick="togglePapers('csu3200', this)">
+    <div class="subject-title">
+      CSU3200 <span class="arrow">&#9660;</span>
+    </div>
+    <div class="hint">Click to expand</div>
     <div id="csu3200" class="paper-links">
       <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW?usp=drive_link" target="_blank">CAT Papers</a>
       <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg?usp=drive_link" target="_blank">Final Papers</a>
@@ -65,12 +93,16 @@
   </div>
 
   <script>
-    function togglePapers(id) {
+    function togglePapers(id, element) {
       const section = document.getElementById(id);
-      if (section.style.display === "none" || section.style.display === "") {
-        section.style.display = "block";
+      const isVisible = section.style.display === "block";
+
+      section.style.display = isVisible ? "none" : "block";
+
+      if (element.classList.contains("expanded")) {
+        element.classList.remove("expanded");
       } else {
-        section.style.display = "none";
+        element.classList.add("expanded");
       }
     }
   </script>
