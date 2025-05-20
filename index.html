@@ -32,25 +32,6 @@
       flex-direction: column;
       align-items: center;
     }
-    section {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 500px;
-      margin: 30px auto;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    a {
-      font-size: 1.2em;
-      text-decoration: none;
-      color: #0077cc;
-      font-weight: bold;
-    }
-    a:hover {
-      color: #005fa3;
-      text-decoration: underline;
-    }
-
     #searchBox {
       width: 100%;
       max-width: 500px;
@@ -59,6 +40,34 @@
       margin: 20px auto;
       border-radius: 8px;
       border: 1px solid #ccc;
+    }
+    #results {
+      max-width: 600px;
+      margin: 30px auto;
+      text-align: left;
+    }
+    .result-item {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .result-item a {
+      color: #0077cc;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+    .result-item a:hover {
+      color: #005fa3;
+      text-decoration: underline;
+    }
+    .subject-name {
+      font-weight: bold;
+      margin-top: 5px;
+      font-size: 0.9em;
+      color: #333;
     }
   </style>
 </head>
@@ -69,30 +78,70 @@
     <img src="https://reginfo.ou.ac.lk/img/main.jpg" alt="Open University of Sri Lanka Logo" />
     
     <input type="text" id="searchBox" placeholder="Search Levels or Courses..." />
-
-    <section class="link-section">
-      <a href="level3.html">Go to LEVEL 3 Past Papers →</a>
-    </section>
-    <!-- Add more sections later -->
+    <div id="results"></div>
   </main>
 
-   <script>
-  window.onload = function () {
-    const searchBox = document.getElementById('searchBox');
+  <!-- Include your courses.js file here -->
+  <script src="courses.js"></script>
 
-    searchBox.addEventListener('input', function () {
-      const query = searchBox.value.toLowerCase();
+  <script>
+    window.onload = function () {
+      const searchBox = document.getElementById('searchBox');
+      const results = document.getElementById('results');
 
-      document.querySelectorAll('.link-section').forEach(section => {
-        const link = section.querySelector('a');
-        const text = link.textContent.toLowerCase();
-        section.style.display = text.includes(query) ? 'block' : 'none';
-       });
-     });
-    };
+      function renderResults(items) {
+        results.innerHTML = '';
+        if (items.length === 0) {
+          results.innerHTML = '<p>No results found.</p>';
+          return;
+        }
+        items.forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'result-item';
+
+          // Link to level3.html (or customize per course if needed)
+          const link = document.createElement('a');
+          link.href = 'level3.html'; // Assuming all courses are in level3.html
+          link.textContent = item.code;
+          div.appendChild(link);
+
+          const subjectSpan = document.createElement('div');
+          subjectSpan.className = 'subject-name';
+          subjectSpan.textContent = `Subject: ${item.subject}`;
+          div.appendChild(subjectSpan);
+
+          results.appendChild(div);
+        });
+      }
+
+      searchBox.addEventListener('input', function () {
+        const query = this.value.toLowerCase().trim();
+
+        if (!query) {
+          results.innerHTML = '';
+          return;
+        }
+
+        // Flatten coursesData to an array of {code, subject}
+        const allCourses = [];
+        coursesData.forEach(subjectObj => {
+          subjectObj.courses.forEach(course => {
+            allCourses.push({
+              code: course.code,
+              subject: subjectObj.subject
+            });
+          });
+        });
+
+        // Filter by subject name or course code
+        const filtered = allCourses.filter(item => {
+          return item.code.toLowerCase().includes(query) || item.subject.toLowerCase().includes(query);
+        });
+
+        renderResults(filtered);
+      });
+    }
   </script>
-
-
 
 </body>
 </html>
