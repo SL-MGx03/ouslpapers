@@ -35,7 +35,7 @@ const coursesData = [
     subject: "Physics",
     courses: [
       { code: "PHU3300", cat: "https://drive.google.com/drive/folders/1V1TxoupniJ3z3ufdvZJ3pomhwo2TpvxJ?usp=drive_link", final: "https://drive.google.com/drive/folders/1V1TxoupniJ3z3ufdvZJ3pomhwo2TpvxJ?usp=drive_link" },
-      { code: "PHU3301", cat: "https://drive.google.com/drive/folders/1Pq_PBMmRhaExn4TZe-gmJFlrHmJnB9a2?usp=drive_link", final: "https://drive.google.com/drive/folders/1Pq_PBMmRhaExn4TZe-gmJFlrHmJnB9a2?usp=drive_link" };
+      { code: "PHU3301", cat: "https://drive.google.com/drive/folders/1Pq_PBMmRhaExn4TZe-gmJFlrHmJnB9a2?usp=drive_link", final: "https://drive.google.com/drive/folders/1Pq_PBMmRhaExn4TZe-gmJFlrHmJnB9a2?usp=drive_link" },
       { code: "PHU3202", cat: "https://drive.google.com/drive/folders/1Ao463Mu6fznCwxdfcyJrZVzjohyOGTtx?usp=drive_link", final: "https://drive.google.com/drive/folders/1Ao463Mu6fznCwxdfcyJrZVzjohyOGTtx?usp=drive_link" }
     ]
   },
