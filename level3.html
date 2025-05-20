@@ -23,7 +23,7 @@
       border-radius: 20px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       padding: 30px;
-      width: 70%;
+      width: 90%;
       max-width: 700px;
       margin: 40px auto;
       color: white;
@@ -75,22 +75,25 @@
       border-radius: 10px;
       margin: 10px 0;
       padding: 10px 15px;
-      cursor: pointer;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
       color: #fff;
     }
 
-    .course:hover {
-      background-color: rgba(255, 255, 255, 0.3);
+    .course-code {
+      font-weight: bold;
+      cursor: pointer;
+      padding: 5px 0;
+    }
+
+    .course-code:hover {
+      text-decoration: underline;
     }
 
     .paper-links {
       display: none;
       margin-top: 10px;
-      margin-left: 20px;
-      width: 100%;
+      margin-left: 10px;
     }
 
     .paper-links a {
@@ -126,6 +129,13 @@
       background-color: rgba(0, 0, 0, 0.5);
     }
 
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #ddd;
+    }
+
     @media screen and (max-width: 600px) {
       h1 {
         font-size: 1.5em;
@@ -147,6 +157,9 @@
     <a href="index.html" class="back-link">← Go Back to Home</a>
 
     <div id="course-container"></div>
+
+    <div class="footer">
+       <p>This website is made for educational purposes only.<br>© 2025 All rights reserved.</p>    </div>
   </div>
 
   <script src="courses.js"></script>
@@ -164,7 +177,10 @@
       subject.courses.forEach(course => {
         const courseDiv = document.createElement('div');
         courseDiv.className = 'course';
-        courseDiv.textContent = course.code;
+
+        const codeDiv = document.createElement('div');
+        codeDiv.className = 'course-code';
+        codeDiv.textContent = course.code;
 
         const linksDiv = document.createElement('div');
         linksDiv.className = 'paper-links';
@@ -181,11 +197,15 @@
 
         linksDiv.appendChild(catLink);
         linksDiv.appendChild(finalLink);
+
+        courseDiv.appendChild(codeDiv);
         courseDiv.appendChild(linksDiv);
         courseList.appendChild(courseDiv);
 
-        courseDiv.addEventListener('click', () => {
-          linksDiv.style.display = linksDiv.style.display === 'block' ? 'none' : 'block';
+        // Separate click for code to expand links (touch-friendly)
+        codeDiv.addEventListener('click', () => {
+          const isVisible = linksDiv.style.display === 'block';
+          linksDiv.style.display = isVisible ? 'none' : 'block';
         });
       });
 
