@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OUSL BSc Science - Search Results</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+      background: linear-gradient(90deg, #007cf0, #00dfd8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #007cf0;
+      color: white;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    #backLink {
+      margin-top: 20px;
+      display: inline-block;
+      font-weight: bold;
+      color: #0077cc;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    #backLink:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Search Results</h1>
+  <section id="resultsSection">
+    <!-- results appear here -->
+  </section>
+
+  <a id="backLink" href="index.html">← Back to Search</a>
+
+  <script src="courses.js"></script>
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function renderResults(subjectName) {
+      const resultSection = document.getElementById('resultsSection');
+      const subjectObj = coursesData.find(s => s.subject.toLowerCase() === subjectName.toLowerCase());
+
+      if (!subjectObj) {
+        resultSection.innerHTML = `<p>No results found for <strong>${subjectName}</strong>.</p>`;
+        return;
+      }
+
+      let html = `<h2>${subjectObj.subject}</h2>`;
+      html += `<table>
+        <thead>
+          <tr><th>Course Code</th><th>CAT Paper</th><th>Final Paper</th></tr>
+        </thead><tbody>`;
+
+      for (const course of subjectObj.courses) {
+        html += `<tr>
+          <td>${course.code}</td>
+          <td>${course.cat === "#" ? 'No link' : `<a href="${course.cat}" target="_blank" rel="noopener noreferrer">CAT</a>`}</td>
+          <td>${course.final === "#" ? 'No link' : `<a href="${course.final}" target="_blank" rel="noopener noreferrer">Final</a>`}</td>
+        </tr>`;
+      }
+
+      html += `</tbody></table>`;
+      resultSection.innerHTML = html;
+    }
+
+    const subjectParam = getQueryParam('subject');
+    if (subjectParam) {
+      renderResults(subjectParam);
+    } else {
+      document.getElementById('resultsSection').innerHTML = '<p>No subject specified.</p>';
+    }
+  </script>
+</body>
+</html>
