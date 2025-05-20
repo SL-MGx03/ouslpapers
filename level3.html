@@ -40,12 +40,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      user-select: none;
     }
 
     .arrow {
       font-size: 1.3em;
       transition: transform 0.3s ease;
-      user-select: none;
     }
 
     .expanded > .title > .arrow {
@@ -64,6 +64,7 @@
       color: #0056a3;
       text-decoration: none;
       font-weight: bold;
+      user-select: text;
     }
 
     a:hover {
@@ -90,8 +91,8 @@
           <span class="arrow">&#9660;</span>
         </div>
         <div class="hidden">
-          <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank">CAT Papers</a>
-          <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank">Final Papers</a>
+          <a href="https://drive.google.com/drive/folders/1NAkPuZizTiVhWfbeMAm2-lvEobV6qxbW" target="_blank" rel="noopener noreferrer">CAT Papers</a>
+          <a href="https://drive.google.com/drive/folders/1Hyyh_YJ_2pVsQXxi-KEUuc6ybi_nuXYg" target="_blank" rel="noopener noreferrer">Final Papers</a>
         </div>
       </div>
 
@@ -102,8 +103,8 @@
           <span class="arrow">&#9660;</span>
         </div>
         <div class="hidden">
-          <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank">CAT Papers</a>
-          <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank">Final Papers</a>
+          <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
+          <a href="https://drive.google.com/drive/folders/YOUR-CSU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
         </div>
       </div>
     </div>
@@ -124,8 +125,8 @@
           <span class="arrow">&#9660;</span>
         </div>
         <div class="hidden">
-          <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-CAT" target="_blank">CAT Papers</a>
-          <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-FINAL" target="_blank">Final Papers</a>
+          <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
+          <a href="https://drive.google.com/drive/folders/YOUR-PHU3300-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
         </div>
       </div>
 
@@ -136,8 +137,8 @@
           <span class="arrow">&#9660;</span>
         </div>
         <div class="hidden">
-          <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-CAT" target="_blank">CAT Papers</a>
-          <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-FINAL" target="_blank">Final Papers</a>
+          <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-CAT" target="_blank" rel="noopener noreferrer">CAT Papers</a>
+          <a href="https://drive.google.com/drive/folders/YOUR-PHU3301-FINAL" target="_blank" rel="noopener noreferrer">Final Papers</a>
         </div>
       </div>
     </div>
@@ -145,13 +146,15 @@
 
 <script>
   function toggleSection(event, element) {
-    if(event) event.stopPropagation(); // Prevent parent toggling
+    if(event) event.stopPropagation(); // Stop event bubbling
 
     const el = element || event.currentTarget;
     el.classList.toggle('expanded');
 
     const hiddenDiv = el.querySelector('.hidden');
-    if(hiddenDiv.style.display === 'block') {
+    if (!hiddenDiv) return;
+
+    if (hiddenDiv.style.display === 'block') {
       hiddenDiv.style.display = 'none';
     } else {
       hiddenDiv.style.display = 'block';
