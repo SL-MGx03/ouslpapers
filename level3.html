@@ -1,74 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Level 3 - OUSL Past Papers</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      background: linear-gradient(to right, #f9f9f9, #d7e1ec);
       margin: 0;
       padding: 20px;
       text-align: center;
     }
+
     h1 {
       color: #0077cc;
-      font-size: 2em;
+      margin-bottom: 30px;
     }
-    section {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 600px;
+
+    .subject {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      max-width: 400px;
       margin: 20px auto;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: background-color 0.2s ease;
     }
-    h2 {
-      color: #444;
+
+    .subject:hover {
+      background-color: #f0f8ff;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+
+    .paper-links {
+      display: none;
+      margin-top: 15px;
+      text-align: left;
     }
-    li {
-      margin: 10px 0;
-    }
-    a {
-      color: #0077cc;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-      color: #005fa3;
-    }
-    .back {
-      margin-top: 20px;
+
+    .paper-links a {
       display: block;
+      margin: 8px 0;
+      color: #0056a3;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .paper-links a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <h1>Level 3 - Past Papers</h1>
+  <h1>Level 3 Subjects</h1>
 
-  <section>
-    <h2>Mathematics</h2>
-    <ul>
-      <li><a href="https://drive.google.com/your-math-paper-2023" target="_blank">2023 Final Exam</a></li>
-      <li><a href="https://drive.google.com/your-math-paper-2022" target="_blank">2022 Midterm</a></li>
-    </ul>
-  </section>
+  <div class="subject" onclick="togglePapers('csu3200')">
+    CSU3200
+    <div id="csu3200" class="paper-links">
+      <a href="https://drive.google.com/your-cat-paper-link" target="_blank">CAT Papers</a>
+      <a href="https://drive.google.com/your-final-paper-link" target="_blank">Final Papers</a>
+    </div>
+  </div>
 
-  <section>
-    <h2>Physics</h2>
-    <ul>
-      <li><a href="https://drive.google.com/your-physics-paper-2023" target="_blank">2023 Final Exam</a></li>
-    </ul>
-  </section>
-
-  <a href="index.html" class="back">← Back to Home</a>
+  <script>
+    function togglePapers(id) {
+      const section = document.getElementById(id);
+      if (section.style.display === "none" || section.style.display === "") {
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 </html>
