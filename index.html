@@ -50,6 +50,16 @@
       color: #005fa3;
       text-decoration: underline;
     }
+
+    #searchBox {
+      width: 100%;
+      max-width: 500px;
+      padding: 10px;
+      font-size: 1em;
+      margin: 20px auto;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
@@ -58,10 +68,24 @@
     <h1>BSc Science - OUSL Past Papers</h1>
     <img src="https://reginfo.ou.ac.lk/img/main.jpg" alt="Open University of Sri Lanka Logo" />
     
-    <section>
+    <input type="text" id="searchBox" placeholder="Search Levels or Courses..." />
+
+    <section class="link-section">
       <a href="level3.html">Go to LEVEL 3 Past Papers →</a>
     </section>
+    <!-- Add more sections later -->
   </main>
+
+  <script>
+    const searchBox = document.getElementById('searchBox');
+    searchBox.addEventListener('input', function () {
+      const query = searchBox.value.toLowerCase();
+      document.querySelectorAll('.link-section').forEach(section => {
+        const text = section.textContent.toLowerCase();
+        section.style.display = text.includes(query) ? 'block' : 'none';
+      });
+    });
+  </script>
 
 </body>
 </html>
