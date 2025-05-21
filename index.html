@@ -12,6 +12,7 @@
       padding: 20px;
       text-align: center;
     }
+
     h1 {
       font-size: 2.5em;
       font-weight: bold;
@@ -21,17 +22,20 @@
       background-clip: text;
       color: transparent;
     }
+
     img {
       max-width: 300px;
       height: auto;
       margin: 10px auto;
       display: block;
     }
+
     main {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+
     section {
       background: white;
       padding: 20px;
@@ -40,6 +44,7 @@
       margin: 30px auto;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
+
     a {
       font-size: 1.2em;
       text-decoration: none;
@@ -47,6 +52,7 @@
       font-weight: bold;
       cursor: pointer;
     }
+
     a:hover {
       color: #005fa3;
       text-decoration: underline;
@@ -62,10 +68,48 @@
       border: 1px solid #ccc;
     }
 
+    .disclaimer-box {
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #ffecb3;
+      font-size: 0.95em;
+      line-height: 1.6;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .disclaimer-box a {
+      color: #fffacd;
+      text-decoration: underline;
+    }
+
+    .disclaimer-box a:hover {
+      color: #ffffff;
+    }
+
     footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #555;
+      margin-top: 20px;
+      font-size: 0.85em;
+      color: #444;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      section {
+        margin: 20px;
+      }
+
+      .disclaimer-box {
+        margin: 20px;
+        padding: 15px;
+      }
     }
   </style>
 </head>
@@ -82,8 +126,16 @@
     </section>
   </main>
 
+  <!-- 📚 Disclaimer Box -->
+  <div class="disclaimer-box">
+    <p>📚 This website was created <strong>for educational purposes only</strong> to simplify access to past exam papers from <a href="http://pqp.ou.ac.lk/" target="_blank">pqp.ou.ac.lk</a>.</p>
+    <p>🛑 No files are hosted here. All links direct you to the <strong>official university source</strong>.</p>
+    <p>✅ Use it to revise, study, and improve your academic success!</p>
+    <p>© 2025 – Educational Use Only</p>
+  </div>
+
   <footer>
-    <p>This website is made for educational purposes only.<br>© 2025 All rights reserved.</p>
+    <p>Powered by open resources for OUSL students. No affiliation with the university.</p>
   </footer>
 
   <script src="courses.js"></script>
