@@ -1,7 +1,7 @@
-# 🎓 OUSL Past Papers (Level 3)
+# 🎓 OUSL Past Papers
 
 > **🔍 Purpose**  
-This project was created **for educational purposes only** to make accessing **Level 3 past papers** from the [OUSL Past Question Papers site](http://pqp.ou.ac.lk/) easier and more user-friendly for students.
+This project was created **for educational purposes only** to make accessing **OUSL NS past papers** from the [OUSL Past Question Papers site](http://pqp.ou.ac.lk/) easier and more user-friendly for students.
 
 ---
 
